@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+</head>
+<body>
+    <h1>Cadastro Usuario</h1>
+    <form action="caduser" method="POST">
+        <p><label for="nome">Nome: </label>
+        <input type="text" name="inome" id="inome"></p>
+
+        <p><label for="cpf">CPF: </label>
+        <input type="text" name="icpf" id="icpf"></p>
+
+        <p><label for="nasc">Nascimento: </label>
+        <input type="text" name="inasc" id="inasc"></p>
+
+        <p><label for="email">e-mail: </label>
+        <input type="text" name="iemail" id="iemail"></p>
+
+        <p><label for="end">Endereço: </label>
+        <input type="text" name="iend" id="iend"></p>
+
+        <p><label for="senha">Senha: </label>
+        <input type="password" name="isenha" id="isenha"></p>
+
+        <p><input type="submit" value="Cadastrar"></p>
+    </form>
+    <h2>Lista de Usuarios</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Nascimento</th>
+                <th>e-Mail</th>
+                <th>Endereço</th>
+                <th>Senha</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for usuario in usuarios%}
+                <tr>
+                    <td>{{usuario.nome}}</td>
+                    <td>{{usuario.cpf}}</td>
+                    <td>{{usuario.nasc}}</td>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.end}}</td>
+                    <td>{{usuario.senha}}</td>
+                    <td><a href={{ url_for("editarusuario", id=usuario.id)}}>Editar</a></td>
+                    <td><a href={{ url_for("deletarusuario", id=usuario.id)}}>Deletar</a></td>
+
+                </tr>
+            {% endfor %}    
+
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+</head>
+<body>
+    <h1>Editar Usuário</h1>
+    <form action="{{ url_for('editarusuario', id=usuario.id) }}" method="POST">
+        <p><label for="nome">Nome: </label>
+        <input type="text" name="inome" id="inome" value="{{ usuario.nome }}"></p>
+
+        <p><label for="cpf">CPF: </label>
+        <input type="text" name="icpf" id="icpf" value="{{ usuario.cpf }}"></p>
+
+        <p><label for="nasc">Nascimento: </label>
+        <input type="text" name="inasc" id="inasc" value="{{ usuario.nasc }}"></p>
+
+        <p><label for="email">e-mail: </label>
+        <input type="text" name="iemail" id="iemail" value="{{ usuario.email }}"></p>
+
+        <p><label for="end">Endereço: </label>
+        <input type="text" name="iend" id="iend" value="{{ usuario.endereco }}"></p>
+
+        <p><label for="senha">Senha: </label>
+        <input type="password" name="isenha" id="isenha" value="{{ usuario.senha }}"></p>
+
+        <p><input type="submit" value="Editar"></p>
+    </form>
+</body>
+</html>
