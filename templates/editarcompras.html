@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Compras</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+<body>
+    <h1>Cadastro Compras</h1>
+    <form action="{{ url_for('editarcompras', id=compra.id) }}" method="POST">
+        <p><label for="codigo_produto">Código Produto:</label>
+            <input type="text" name="icodigo_produto" id="icodigo_produto"></p>
+        
+            <p><label for="valor_produto">Valor Produto:</label>
+            <input type="text" name="ivalor_produto" id="ivalor_produto"></p>
+        
+            <p><label for="data_compra">Data da Compra:</label>
+            <input type="text" name="idata_compra" id="idata_compra"></p> 
+        
+            <p><label for="metodo_pagamento">Forma de pagamento:</label>
+            <input type="text" name="metodo_pagamento" id="metodo_pagamento"></p>
+    
+        <p><input type="submit" value="Cadastrar"></p>
+    
+</body>
+</html>

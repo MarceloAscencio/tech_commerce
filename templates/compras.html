@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compras</title>
+    <title>Cadastro de Compras</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
 <body>
-    <h1>Tela de compras</h1>
-    <p>Compras</p>
+    <div class="container">
+        <h1>Cadastro de Compras</h1>
+        <form action="/cadcompras" method="POST">
+            <div class="form-group">
+                <label for="codigo_produto">Código do Produto:</label>
+                <input type="text" class="form-control" name="icodigo_produto" id="icodigo_produto">
+            </div>
+            <div class="form-group">
+                <label for="valor_produto">Valor do Produto:</label>
+                <input type="text" class="form-control" name="ivalor_produto" id="ivalor_produto">
+            </div>
+            <div class="form-group">
+                <label for="data_compra">Data da Compra:</label>
+                <input type="text" class="form-control" name="idata_compra" id="idata_compra">
+            </div>
+            <div class="form-group">
+                <label for="metodo_pagamento">Forma de Pagamento:</label>
+                <input type="text" class="form-control" name="metodo_pagamento" id="metodo_pagamento">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
+
+        <h2>Lista de Compras</h2>
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Valor</th>
+                    <th>Forma de Pagamento</th>
+                    <th>Código do Produto</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for compra in compras %}
+                    <tr>
+                        <td>{{ compra.valor_compra }}</td>
+                        <td>{{ compra.metodo_pagamento }}</td>
+                        <td>{{ compra.codigo_anuncio }}</td>
+                        <td><a href="{{ url_for('editarcompras', id=compra.id) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                        <td><a href="{{ url_for('deletarcompras', id=compra.id) }}" class="btn btn-danger btn-sm">Deletar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

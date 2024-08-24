@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuncios</title>
+    <title>Cadastro Anúncio</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
 <body>
-    <h1>Tela dos anuncios</h1>
-    <p>OFERTA!!!</p>
+    <div class="container">
+        <h1>Cadastro Anúncio</h1>
+        <form action="/cadanuncio" method="POST">
+            <div class="form-group">
+                <label for="nomeanuncio">Nome Anúncio:</label>
+                <input type="text" class="form-control" name="inomeanuncio" id="inomeanuncio">
+            </div>
+            <div class="form-group">
+                <label for="descricaoanuncio">Descrição:</label>
+                <input type="text" class="form-control" name="idescricaoanuncio" id="idescricaoanuncio">
+            </div>
+            <div class="form-group">
+                <label for="valoranuncio">Valor:</label>
+                <input type="text" class="form-control" name="ivaloranuncio" id="ivaloranuncio">
+            </div>
+            <div class="form-group">
+                <label for="localizacaoanuncio">Localização:</label>
+                <input type="text" class="form-control" name="ilocalizacaoanuncio" id="ilocalizacaoanuncio">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
+
+        <h2>Lista de Anúncios</h2>
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Localização</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for anuncio in anuncios %}
+                    <tr>
+                        <td>{{ anuncio.nome_anuncio }}</td>
+                        <td>{{ anuncio.descri_anuncio }}</td>
+                        <td>{{ anuncio.valor }}</td>
+                        <td>{{ anuncio.localiza }}</td>
+                        <td><a href="{{ url_for('editaranuncio', id=anuncio.id) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                        <td><a href="{{ url_for('deletaranuncio', id=anuncio.id) }}" class="btn btn-danger btn-sm">Deletar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Anuncio</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+<body>
+    <h1>Cadastro Categoria</h1>
+    <form action="{{ url_for('editaranuncio', id=anuncio.id) }}" method="POST">
+        <p><label for="nomeanuncio">Nome Anuncio: </label>
+        <input type="text" name="inomeanuncio" id="inomeanuncio"></p>
+    
+        <p><label for="descricaoanuncio">Descrição: </label>
+        <input type="text" name="idescricaoanuncio" id="idescricaoanuncio"></p>
+    
+        <p><label for="valoranuncio">Valor: </label>
+        <input type="text" name="ivaloranuncio" id="ivaloranuncio"></p>
+ 
+        <p><label for="localizacaoanuncio">Localização: </label> 
+        <input type="text" name="ilocalizacaoanuncio" id="ilocalizacaoanuncio"></p>
+    
+        <p><input type="submit" value="Cadastrar"></p>
+    
+</body>
+</html>

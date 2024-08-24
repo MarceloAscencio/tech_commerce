@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Categoria</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+<body>
+    <h1>Cadastro Categoria</h1>
+    <form action="{{ url_for('editarcategoria', id=categoria.id) }}" method="POST">
+        <p><label for="nomecat">Nome: </label>
+        <input type="text" name="inomecat" id="inomecat"></p>
+
+        <p><label for="descricao">Descrição: </label>
+        <input type="text" name="idescricao" id="idescricao"></p>
+
+        <p><label for="datacria">Data da descrição: </label>
+        <input type="text" name="idatacria" id="idatacria"></p>
+
+        <p><input type="submit" value="Cadastrar"></p>
+    
+</body>
+</html>

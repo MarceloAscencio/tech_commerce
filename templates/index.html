@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela inicial</title>
+    <title>Tela Inicial</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        } 
+    </style>
 </head>
 <body>
-    <h1>Tech Commerce</h1>
-    <a h>Tela inicial</a>
-    <p><a href={{url_for("usuario")}}>Cadastro de Usuarios</a></p>
-    <p><a href={{url_for("categoria")}}>Categorias</a></p>
-    <a>Anuncios</a>
-    <a>Compras</a>
-    <a>Perfil</a>
+    <div class="container">
+        <h1>Tech Commerce</h1>
+        <div class="btn-group-vertical">
+            <a href="{{ url_for('usuario') }}" class="btn btn-dark btn-lg">Cadastro de Usuários</a>
+            <a href="{{ url_for('categoria') }}" class="btn btn-secondary btn-lg">Categorias</a>
+            <a href="{{ url_for('anuncios') }}" class="btn btn-dark btn-lg">Anúncios</a>
+            <a href="{{ url_for('compras') }}" class="btn btn-secondary btn-lg">Compras</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-dark btn-lg">Logout</a>
+        </div>
+    </div>
 </body>
 </html>

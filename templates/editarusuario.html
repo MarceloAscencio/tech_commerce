@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Usuario</title>
+    <title>Editar Usuário</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
 </head>
 <body>
-    <h1>Editar Usuário</h1>
-    <form action="{{ url_for('editarusuario', id=usuario.id) }}" method="POST">
-        <p><label for="nome">Nome: </label>
-        <input type="text" name="inome" id="inome" value="{{ usuario.nome }}"></p>
-
-        <p><label for="cpf">CPF: </label>
-        <input type="text" name="icpf" id="icpf" value="{{ usuario.cpf }}"></p>
-
-        <p><label for="nasc">Nascimento: </label>
-        <input type="text" name="inasc" id="inasc" value="{{ usuario.nasc }}"></p>
-
-        <p><label for="email">e-mail: </label>
-        <input type="text" name="iemail" id="iemail" value="{{ usuario.email }}"></p>
-
-        <p><label for="end">Endereço: </label>
-        <input type="text" name="iend" id="iend" value="{{ usuario.endereco }}"></p>
-
-        <p><label for="senha">Senha: </label>
-        <input type="password" name="isenha" id="isenha" value="{{ usuario.senha }}"></p>
-
-        <p><input type="submit" value="Editar"></p>
-    </form>
+    <div class="container">
+        <h1>Editar Usuário</h1>
+        <form action="{{ url_for('editarusuario', id=usuario.id) }}" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" name="inome" id="inome">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="icpf" id="icpf">
+            </div>
+            <div class="form-group">
+                <label for="nasc">Nascimento:</label>
+                <input type="text" class="form-control" name="inasc" id="inasc">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" name="iemail" id="iemail">
+            </div>
+            <div class="form-group">
+                <label for="end">Endereço:</label>
+                <input type="text" class="form-control" name="iend" id="iend" >
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" name="isenha" id="isenha">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Editar</button>
+        </form>
+    </div>
 </body>
 </html>

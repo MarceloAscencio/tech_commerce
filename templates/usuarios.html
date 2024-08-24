@@ -3,61 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    
 </head>
 <body>
-    <h1>Cadastro Usuario</h1>
-    <form action="caduser" method="POST">
-        <p><label for="nome">Nome: </label>
-        <input type="text" name="inome" id="inome"></p>
+    <div class="container">
+        <h1>Cadastro de Usuário</h1>
+        <form action="caduser" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" name="inome" id="inome">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="icpf" id="icpf">
+            </div>
+            <div class="form-group">
+                <label for="nasc">Nascimento:</label>
+                <input type="text" class="form-control" name="inasc" id="inasc">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" name="iemail" id="iemail">
+            </div>
+            <div class="form-group">
+                <label for="end">Endereço:</label>
+                <input type="text" class="form-control" name="iend" id="iend">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" name="isenha" id="isenha">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
 
-        <p><label for="cpf">CPF: </label>
-        <input type="text" name="icpf" id="icpf"></p>
+        <h2>Lista de Usuários</h2>
 
-        <p><label for="nasc">Nascimento: </label>
-        <input type="text" name="inasc" id="inasc"></p>
-
-        <p><label for="email">e-mail: </label>
-        <input type="text" name="iemail" id="iemail"></p>
-
-        <p><label for="end">Endereço: </label>
-        <input type="text" name="iend" id="iend"></p>
-
-        <p><label for="senha">Senha: </label>
-        <input type="password" name="isenha" id="isenha"></p>
-
-        <p><input type="submit" value="Cadastrar"></p>
-    </form>
-    <h2>Lista de Usuarios</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Nascimento</th>
-                <th>e-Mail</th>
-                <th>Endereço</th>
-                <th>Senha</th>
-                <th>Deletar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for usuario in usuarios%}
+        <table class="table table-striped table-bordered">
+            <thead class="thead-light">
                 <tr>
-                    <td>{{usuario.nome}}</td>
-                    <td>{{usuario.cpf}}</td>
-                    <td>{{usuario.nasc}}</td>
-                    <td>{{usuario.email}}</td>
-                    <td>{{usuario.end}}</td>
-                    <td>{{usuario.senha}}</td>
-                    <td><a href={{ url_for("editarusuario", id=usuario.id)}}>Editar</a></td>
-                    <td><a href={{ url_for("deletarusuario", id=usuario.id)}}>Deletar</a></td>
-
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Nascimento</th>
+                    <th>E-mail</th>
+                    <th>Endereço</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
                 </tr>
-            {% endfor %}    
-
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.cpf }}</td>
+                        <td>{{ usuario.nasc }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.endereco }}</td>
+                        <td><a href="{{ url_for('editarusuario', id=usuario.id) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                        <td><a href="{{ url_for('deletarusuario', id=usuario.id) }}" class="btn btn-danger btn-sm">Deletar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

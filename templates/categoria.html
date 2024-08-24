@@ -1,23 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categoria</title>
+    <title>Cadastro Categoria</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
 <body>
-    <h1>Cadastro Categoria</h1>
-    <form action="/cadcategoria" method="POST">
-        <p><label for="nomecat">Nome: </label>
-        <input type="text" name="inomecat" id="inomecat"></p>
+    <div class="container">
+        <h1>Cadastro Categoria</h1>
+        <form action="/cadcategoria" method="POST">
+            <div class="form-group">
+                <label for="nomecat">Nome:</label>
+                <input type="text" class="form-control" name="inomecat" id="inomecat">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" class="form-control" name="idescricao" id="idescricao">
+            </div>
+            <div class="form-group">
+                <label for="datacria">Data da Criação:</label>
+                <input type="text" class="form-control" name="idatacria" id="idatacria">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
 
-        <p><label for="descricao">Descrição: </label>
-        <input type="text" name="idescricao" id="idescricao"></p>
-
-        <p><label for="datacria">Data da descrição: </label>
-        <input type="text" name="idatacria" id="idatacria"></p>
-
-        <p><input type="submit" value="Cadastrar"></p>
-    
+        <h2>Lista de Categorias</h2>
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Data da Criação</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ categoria.nomecat }}</td>
+                        <td>{{ categoria.descricat }}</td>
+                        <td>{{ categoria.datacria }}</td>
+                        <td><a href="{{ url_for('editarcategoria', id=categoria.id) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                        <td><a href="{{ url_for('deletarcategoria', id=categoria.id) }}" class="btn btn-danger btn-sm">Deletar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
